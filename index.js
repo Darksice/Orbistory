@@ -22,8 +22,6 @@ const bdd = require('./bdd')
 app.get('/api/pays',cors(),async(req,res,next) => {
     try{
         bdd.getPays().then(response => {
-        console.log("je suis dans la route");
-        console.log(response);
         res.status(200).send(response);
         })
     
