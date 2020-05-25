@@ -1,21 +1,21 @@
 const {Pool } = require('pg');
 
 //Pour deploy heroku
-// const pool = new Pool({
-//   connectionString: process.env.DATABASE_URL,
-//   ssl:{
-//       rejectUnauthorized: false
-//   }
-// });
+const pool = new Pool({
+  connectionString: process.env.DATABASE_URL,
+  ssl:{
+      rejectUnauthorized: false
+  }
+});
 
 //Pour deploy localhost
-const pool = new Pool({
-    user: 'postgres',
-    host: 'localhost',
-    database: 'salutH',
-    password: 'Uzescalou98',
-    port: 5432,
-  });
+// const pool = new Pool({
+//     user: 'postgres',
+//     host: 'localhost',
+//     database: 'salutH',
+//     password: 'Uzescalou98',
+//     port: 5432,
+//   });
 
 
 const getPays = () =>{
