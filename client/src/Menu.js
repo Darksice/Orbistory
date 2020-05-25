@@ -2,6 +2,7 @@ import React, {Component} from "react";
 import {BrowserRouter, Route, Switch} from 'react-router-dom';
 import App from "./App";
 import Pays from "./Pays";
+import Annee from './Annee'
 
 
 class Menu extends Component {
@@ -11,6 +12,7 @@ class Menu extends Component {
                 <Switch>
                     <Route exact={true} path='/' component={App}/>
                     <Route path='/pays' component={Pays}/>
+                    <Route path='/annee' component={Annee}/>
                 </Switch>
             </BrowserRouter>
 

@@ -30,6 +30,17 @@ app.get('/api/pays',cors(),async(req,res,next) => {
     }
 })
 
+app.get('/api/annee',cors(),async(req,res,next) => {
+    try{
+        bdd.getAnnee().then(response => {
+        res.status(200).send(response);
+        })
+    
+    } catch(err){
+       next(err);
+    }
+})
+
 
 const path = require('path')
 // Serve static files from the React frontend app

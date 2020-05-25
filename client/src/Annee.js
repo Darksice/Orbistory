@@ -4,7 +4,7 @@ import logoSite from './img/logo.png';
 import logoConnexion from './img/connexion.jpg';
 import {Link} from 'react-router-dom';
 
-class Pays extends React.Component {
+class Annee extends React.Component {
 
   constructor(props)
   {
@@ -16,17 +16,17 @@ class Pays extends React.Component {
   }
 
   componentWillMount(){
-    this.getPays();
+    this.getAnnee();
  }
 
-  getPays() {
-    fetch('https://orbistory.herokuapp.com/api/pays')
+  getAnnee() {
+    fetch('https://orbistory.herokuapp.com/api/annee')
       .then(response => response.json())
         .then(data => {
             let joined = [...this.state.list];
             for(let i=0;i<data.length;i++)
             {
-                joined = joined.concat(data[i].pays);
+                joined = joined.concat(data[i].annee);
             } 
           this.setState({
               list: joined,
@@ -47,8 +47,8 @@ class Pays extends React.Component {
         <h1> NOM DU SITE </h1>
         
         <div className="corps">
-              {this.state.list.map( pays => (
-                  <li key={pays}> {pays} </li>
+              {this.state.list.map( annee => (
+                  <li key={annee}> {annee} </li>
               ))
                 }
         </div>
@@ -58,4 +58,4 @@ class Pays extends React.Component {
   }
 }
 
-export default Pays;
+export default Annee;

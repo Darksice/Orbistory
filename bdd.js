@@ -9,7 +9,19 @@ const pool = new Pool({
 
 const getPays = () =>{
     return new Promise(function(resolve,reject){
-        pool.query('SELECT DISTINCT article.Pays From article',(error,results) => {
+        pool.query('SELECT DISTINCT article.pays From article',(error,results) => {
+            if(error){
+                reject(error);
+            }
+            resolve(results.rows);
+        })
+
+    })
+}
+
+const getAnnee = () =>{
+    return new Promise(function(resolve,reject){
+        pool.query('SELECT DISTINCT article.annee From article',(error,results) => {
             if(error){
                 reject(error);
             }
@@ -21,4 +33,5 @@ const getPays = () =>{
 
 module.exports = {
     getPays,
+    getAnnee,
 }

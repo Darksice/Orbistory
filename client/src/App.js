@@ -23,14 +23,14 @@ class App extends React.Component {
         </header>
 
         <h1> NOM DU SITE </h1>
-        
+        {console.log("test")}
         <div className="corps">
           <div className="Pays">
             <Link className="LinkPays" to="/pays">Pays</Link>
           </div>
 
           <div className="Année">
-            <h2>Année</h2>
+          <Link className="LinkAnnee" to="/annee">Annee</Link>
           </div>
         </div>
 
