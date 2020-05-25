@@ -2,7 +2,6 @@ import React from 'react';
 import './App.css';
 import logoSite from './img/logo.png';
 import logoConnexion from './img/connexion.jpg';
-import {Link} from 'react-router-dom';
 
 class Annee extends React.Component {
 
@@ -20,7 +19,7 @@ class Annee extends React.Component {
  }
 
   getAnnee() {
-    fetch('https://orbistory.herokuapp.com/api/annee')
+    fetch('/api/annee')
       .then(response => response.json())
         .then(data => {
             let joined = [...this.state.list];

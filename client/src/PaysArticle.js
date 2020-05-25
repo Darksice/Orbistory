@@ -2,7 +2,6 @@ import React from 'react';
 import './App.css';
 import logoSite from './img/logo.png';
 import logoConnexion from './img/connexion.jpg';
-import {Link, useParams} from 'react-router-dom';
 
 class PaysArticle extends React.Component {
 
@@ -10,28 +9,35 @@ class PaysArticle extends React.Component {
   {
     super(props);
     this.state = { 
-      
+        list: [],
+        tailleList:0
     };
   }
 
-  componentWillMount(){
+  componentDidMount(){
     this.getPaysArticle();
  }
 
  getPaysArticle() {
-    fetch(`https://orbistory.herokuapp.com/api/pays/${this.props.match.params.id}`)
+    fetch(`/api/pays/${this.props.match.params.id}`)
       .then(response => response.json())
         .then(data => {
+            console.log(data);
+            console.log("a une taille de ");
+            console.log(data.length);
             let joined = [...this.state.list];
             for(let i=0;i<data.length;i++)
             {
-                joined = joined.concat(data[i].pays);
+                joined = joined.concat(data[i].nom);
+                console.log("joined");
+                console.log(joined);
             } 
           this.setState({
               list: joined,
               tailleList: data.length
             })
         })
+        
     }
 
   render(){
@@ -44,13 +50,12 @@ class PaysArticle extends React.Component {
         </header>
 
         <h1> {this.props.match.params.id} </h1>
-        
-        {/* <div className="corps">
-              {this.state.list.map( pays => (
-                  <li key={pays}> <Link className="LinkPaysLi" to={`/pays/${pays}`}>{pays}</Link> </li>
+        <div className="corps">
+              {this.state.list.map( nom => (
+                  <li key={nom}> <a href={`/article/${nom}.html`}>{nom}</a> </li>
               ))
                 }
-        </div> */}
+        </div>
 
       </div>
     );

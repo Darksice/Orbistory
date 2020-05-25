@@ -43,9 +43,9 @@ app.get('/api/annee',cors(),async(req,res,next) => {
 })
 
 app.get('/api/pays/:id',cors(),async(req,res,next) => {
-    try{
-        bdd.getPaysArticle().then(response => {
-        res.status(200).send(id);
+    try{//req.params.id
+        bdd.getPaysArticle(req.params.id).then(response => {
+        res.status(200).send(response);
         })
     
     } catch(err){

@@ -20,7 +20,7 @@ class Pays extends React.Component {
  }
 
   getPays() {
-    fetch('https://orbistory.herokuapp.com/api/pays')
+    fetch('/api/pays')
       .then(response => response.json())
         .then(data => {
             let joined = [...this.state.list];
