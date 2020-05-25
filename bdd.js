@@ -31,7 +31,20 @@ const getAnnee = () =>{
     })
 }
 
+const getPaysArticle = () =>{
+    return new Promise(function(resolve,reject){
+        pool.query('SELECT DISTINCT article.nom From article',(error,results) => {
+            if(error){
+                reject(error);
+            }
+            resolve(results.rows);
+        })
+
+    })
+}
+
 module.exports = {
     getPays,
     getAnnee,
+    getPaysArticle,
 }

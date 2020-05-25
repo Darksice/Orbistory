@@ -21,6 +21,7 @@ const bdd = require('./bdd')
 
 app.get('/api/pays',cors(),async(req,res,next) => {
     try{
+        console.log("pays");
         bdd.getPays().then(response => {
         res.status(200).send(response);
         })
@@ -34,6 +35,17 @@ app.get('/api/annee',cors(),async(req,res,next) => {
     try{
         bdd.getAnnee().then(response => {
         res.status(200).send(response);
+        })
+    
+    } catch(err){
+       next(err);
+    }
+})
+
+app.get('/api/pays/:id',cors(),async(req,res,next) => {
+    try{
+        bdd.getPaysArticle().then(response => {
+        res.status(200).send(id);
         })
     
     } catch(err){

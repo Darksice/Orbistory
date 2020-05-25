@@ -2,25 +2,24 @@ import React from 'react';
 import './App.css';
 import logoSite from './img/logo.png';
 import logoConnexion from './img/connexion.jpg';
-import {Link} from 'react-router-dom';
+import {Link, useParams} from 'react-router-dom';
 
-class Pays extends React.Component {
+class PaysArticle extends React.Component {
 
   constructor(props)
   {
     super(props);
     this.state = { 
-      list: [],
-      tailleList:0
+      
     };
   }
 
   componentWillMount(){
-    this.getPays();
+    this.getPaysArticle();
  }
 
-  getPays() {
-    fetch('https://orbistory.herokuapp.com/api/pays')
+ getPaysArticle() {
+    fetch(`https://orbistory.herokuapp.com/api/pays/${this.props.match.params.id}`)
       .then(response => response.json())
         .then(data => {
             let joined = [...this.state.list];
@@ -44,18 +43,18 @@ class Pays extends React.Component {
           <img className="connexion" src={logoConnexion} alt="C"></img>
         </header>
 
-        <h1> NOM DU SITE </h1>
+        <h1> {this.props.match.params.id} </h1>
         
-        <div className="corps">
+        {/* <div className="corps">
               {this.state.list.map( pays => (
                   <li key={pays}> <Link className="LinkPaysLi" to={`/pays/${pays}`}>{pays}</Link> </li>
               ))
                 }
-        </div>
+        </div> */}
 
       </div>
     );
   }
 }
 
-export default Pays;
+export default PaysArticle;
