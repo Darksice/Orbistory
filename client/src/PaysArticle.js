@@ -41,7 +41,6 @@ class PaysArticle extends React.Component {
     }
 
   render(){
-
     return (
       <div className="App">
         <header className="App-header">
@@ -52,7 +51,7 @@ class PaysArticle extends React.Component {
         <h1> {this.props.match.params.id} </h1>
         <div className="corps">
               {this.state.list.map( nom => (
-                  <li key={nom}> <a href={`/article/${nom}.html`}>{nom}</a> </li>
+                  <li key={nom}> <a href={`/article/${nom}`}>{nom}</a> </li>
               ))
                 }
         </div>

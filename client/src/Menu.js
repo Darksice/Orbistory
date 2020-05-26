@@ -4,6 +4,7 @@ import App from "./App";
 import Pays from "./Pays";
 import Annee from "./Annee";
 import PaysArticle from "./PaysArticle";
+import Article from "./DashboardWrapper"
 
 
 class Menu extends Component {
@@ -15,6 +16,7 @@ class Menu extends Component {
                     <Route exact path='/pays' component={Pays}/>
                     <Route exact path='/annee' component={Annee}/>
                     <Route exact path="/pays/:id" component={PaysArticle}/>
+                    <Route exact path="/article/:id" component={Article}/>
                 </Switch>
             </BrowserRouter>
 

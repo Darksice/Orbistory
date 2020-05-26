@@ -15,7 +15,7 @@ class Pays extends React.Component {
     };
   }
 
-  componentWillMount(){
+  componentDidMount(){
     this.getPays();
  }
 
